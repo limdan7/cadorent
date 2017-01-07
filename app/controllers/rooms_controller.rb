@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
   
   def create
     @room = Room.new(room_params)
+    @room.user = User.first
     if @room.save
       flash[:success]="The post was successfully created"
       redirect_to room_path(@room)
@@ -44,6 +45,7 @@ class RoomsController < ApplicationController
     def set_room
       @room = Room.find(params[:id])
     end
+    
     def room_params
       params.require(:room).permit(:title,:description)
     end
