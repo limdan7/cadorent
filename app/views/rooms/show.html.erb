@@ -1,0 +1,10 @@
+<h1>Showing selected room</h1>
+<p>
+  Title: <%= @room.title %>
+</p>
+<p>
+  Description: <%= @room.description %>
+</p>
+<%= link_to 'edit this room', edit_room_path(@room) %>
+<%= link_to 'Back to the listing', rooms_path %>
+
