@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      flash[:notice]="The post was successfully created"
+      flash[:success]="The post was successfully created"
       redirect_to room_path(@room)
     else
       render 'new'
@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
   
   def update
     if @room.update(room_params)
-      flash[:notice] = "The post was successfully updated"
+      flash[:success] = "The post was successfully updated"
       redirect_to room_path(@room)
     else
       render 'edit'
@@ -36,7 +36,7 @@ class RoomsController < ApplicationController
   
   def destroy
     @room.destroy
-    flash[:notice] = "The post was successfully deleted"
+    flash[:success] = "The post was successfully deleted"
     redirect_to rooms_path
   end
 

@@ -1,19 +1,20 @@
-<h1>Listing all rooms</h1>
-<p>
-  <%= link_to "Created new room", new_room_path%>
-</p>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
-  <% @rooms.each do |room|%>
-  <tr>
-    <td><%= room.title%></td>
-    <td><%= room.description%></td>
-    <td><%= link_to 'Edit',edit_room_path(room) %></td>
-    <td><%= link_to 'Show',room_path(room) %></td>
-    <td><%= link_to 'Delete', room_path(room), method: :delete, data: {confirm: "Are you sure?"} %></td>
-  </tr>
-  <% end %>
-</table>
+<h1 align="center">Listing all rooms</h1>
+
+<% @rooms.each do |room|%>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="room-title">
+          <%= link_to room.title, room_path(room) %>
+        </div>
+        <div class="room-body">
+          <%= truncate(room.description,length: 100) %>
+        </div>
+        <div class="room-actions">
+          <%= link_to 'Edit this post', edit_room_path(room), class: "btn btn-xs btn-primary" %>
+          <%= link_to 'Delete this post', room_path(room), method: :delete, data:{confirm: "Do you want to delete this post?"}, class: "btn btn-xs btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>  
+<% end %>
