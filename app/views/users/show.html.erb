@@ -7,4 +7,13 @@
 </div>
 
 <h4 align="center"><%= @user.username %>'s postings</h4>
-<%= render 'rooms/room', obj: @user.rooms %>
+
+<div class="center">
+  <%= will_paginate @user_rooms %>
+</div>
+
+<%= render 'rooms/room', obj: @user_rooms %>
+
+<div class="center">
+  <%= will_paginate @user_rooms %>
+</div>
