@@ -12,6 +12,9 @@
             <small>Created by: <%= room.user.username if room.user %>, <%= time_ago_in_words(room.created_at) %> ago, last updated <%= time_ago_in_words(room.updated_at) %> ago</small>
           </div>
         </div>
+        <% if article.categories.any? %>
+          <p>Categories: <%= render article.categories %></p>
+        <% end %>
         <% if logged_in? && (current_user == room.user || current_user.admin?) %>
           <div class="room-actions">
             <%= link_to 'Edit this post', edit_room_path(room), class: "btn btn-xs btn-primary" %>

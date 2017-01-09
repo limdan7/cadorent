@@ -1,4 +1,6 @@
 class Room < ActiveRecord::Base
+  has_many :room_categories
+  has_many :categories, through: :room_categories
   belongs_to :user
   validates :title, presence: true, length: {minimum: 3, maximum: 50}
   validates :description, presence: true, length: {minimum: 10, maximum: 300}
